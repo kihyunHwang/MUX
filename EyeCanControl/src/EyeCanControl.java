@@ -38,6 +38,6 @@ public class EyeCanControl
 		ActionImage ActionImage = new ActionImage(GUI);
 		Action.SetActionImage(ActionImage);
 		Thread desktopServerThread = new Thread(new TCPserver(Action, Setting));
-		desktopServerThread.start(); // APP ¿¬µ¿À» À§ÇÑ thread ½ÇÇà
+		desktopServerThread.start(); // APP ì—°ë™ì„ ìœ„í•´ Thread ì‹¤í–‰
 	}
 }
