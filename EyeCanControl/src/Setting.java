@@ -21,7 +21,7 @@ public class Setting
 
 	public void setServerIP(String serverIP) 
 	{
-		ServerIP = serverIP;
+		this.ServerIP = serverIP;
 	}
 
 	public int getServerPort() 
@@ -31,7 +31,7 @@ public class Setting
 
 	public void setServerPort(int serverPort) 
 	{
-		ServerPort = serverPort;
+		this.ServerPort = serverPort;
 	}
 
 	public String getComPort() 
@@ -41,7 +41,7 @@ public class Setting
 
 	public void setComPort(String comPort) 
 	{
-		ComPort = comPort;
+		this.ComPort = comPort;
 	}
 
 	public String getEmergencyMessage() 
@@ -51,7 +51,8 @@ public class Setting
 
 	public void setEmergencyMessage(String emergencyMessage) 
 	{
-		EmergencyMessage = emergencyMessage;
+		this.EmergencyMessage = emergencyMessage;
+		System.out.println("chage : " + EmergencyMessage);
 	}
 	
 	

@@ -104,6 +104,8 @@ public class Action
 		String EmergencyMessage;
 		EmergencyMessage = Setting.getEmergencyMessage();
 		
+		System.out.println("보낼 메시지 : " + EmergencyMessage);
+		
 		//msg에 응급메시지를 넣어서 보낸다
 		Message message = new Message.Builder().addData("msg", EmergencyMessage).build();   
 		

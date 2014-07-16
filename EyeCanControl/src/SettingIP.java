@@ -11,8 +11,9 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
 
-public class SettingIP extends Setting implements ActionListener
+public class SettingIP implements ActionListener
 {
+	private Setting Setting;
 	private JTabbedPane TabPane;
 	private JPanel SetIpPanel;
 	private JTextField txtServerIP;
@@ -20,9 +21,9 @@ public class SettingIP extends Setting implements ActionListener
 	private JButton btnSave;
 	private Font font1 = new Font("돋움", Font.PLAIN, 12);
 	
-	public SettingIP(JTabbedPane Panel) 
+	public SettingIP(Setting Setting, JTabbedPane Panel) 
 	{
-		//super();
+		this.Setting = Setting;
 		this.TabPane = Panel;
 		createSetIpPanel();
 		TabPane.addTab("IP&PORT", SetIpPanel);
@@ -40,7 +41,7 @@ public class SettingIP extends Setting implements ActionListener
 		
 		JTextField txtComPort = new JTextField();
 		txtComPort.setBounds(100, 20, 50, 20);
-		txtComPort.setText(ComPort);
+		txtComPort.setText(Setting.getComPort());
 		txtComPort.setEditable(false);
 		SetIpPanel.add(txtComPort);
 		
@@ -50,7 +51,7 @@ public class SettingIP extends Setting implements ActionListener
 		
 		txtServerIP = new JTextField();
 		txtServerIP.setBounds(100, 60, 90, 20);
-		txtServerIP.setText(ServerIP);
+		txtServerIP.setText(Setting.getServerIP());
 		SetIpPanel.add(txtServerIP);
 		
 		JLabel lblServerPort = new JLabel("ServerPort : ");
@@ -59,11 +60,11 @@ public class SettingIP extends Setting implements ActionListener
 		
 		txtServerPort = new JTextField();
 		txtServerPort.setBounds(100, 100, 50, 20);
-		txtServerPort.setText(Integer.toString(ServerPort));
+		txtServerPort.setText(Integer.toString(Setting.getServerPort()));
 		SetIpPanel.add(txtServerPort);
 		
 		btnSave = new JButton("저장");
-		btnSave.setBounds(80, 150, 70, 20);
+		btnSave.setBounds(80, 150, 70, 30);
 		btnSave.setFont(font1);
 		SetIpPanel.add(btnSave);
 		btnSave.addActionListener(this);
@@ -78,8 +79,8 @@ public class SettingIP extends Setting implements ActionListener
 			int ServerPort;
 			ServerIP = txtServerIP.getText();
 			ServerPort = Integer.parseInt(txtServerPort.getText());
-			setServerIP(ServerIP);
-			setServerPort(ServerPort);
+			Setting.setServerIP(ServerIP);
+			Setting.setServerPort(ServerPort);
 			
 			new Thread() {   
 				public void run() {   

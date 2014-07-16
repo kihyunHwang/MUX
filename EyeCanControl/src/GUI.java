@@ -18,6 +18,7 @@ public class GUI extends JFrame implements ActionListener
 {
 	private Action Action;
 	private Devices Devices;
+	private Setting Setting;
 	private SettingWin SettingWin;
 	private ImageIcon fan_off_icon;
 	private ImageIcon fan_low_icon;
@@ -40,12 +41,12 @@ public class GUI extends JFrame implements ActionListener
 	private JButton emergency_message;
 	private JButton btnSetting;
 	
-	public GUI(Action listener, Devices Devices) 
+	public GUI(Action listener, Devices Devices, Setting Setting) 
 	{
 		this.Action = listener;
 		// 초기 상태를 결정하기 위해서 읽어온다.
 		this.Devices = Devices;
-		SettingWin = new SettingWin();
+		SettingWin = new SettingWin(Setting);
 		
 	}
 	
@@ -319,7 +320,7 @@ public class GUI extends JFrame implements ActionListener
 		else if(e.getSource().equals(btnSetting)) // Setting
 		{
 			SettingWin.setTitle("EyeCanControl-환경설정");
-			SettingWin.setBounds(300, 100, 300, 300);
+			SettingWin.setBounds(300, 100, 350, 300);
 			SettingWin.setVisible(true);
 		}
 	}

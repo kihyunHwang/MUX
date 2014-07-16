@@ -8,11 +8,13 @@ import javax.swing.JTabbedPane;
 
 public class SettingWin extends JFrame 
 {
+	private Setting Setting;
 	private JPanel SettingPanel;
 	private JTabbedPane TabPane;
 	
-	public SettingWin()
+	public SettingWin(Setting Setting)
 	{
+		this.Setting = Setting;
 		createUI();
 		getContentPane().add(SettingPanel);
 	}
@@ -25,7 +27,8 @@ public class SettingWin extends JFrame
 		
 		TabPane = new JTabbedPane();
 		
-		SettingIP SettingIp = new SettingIP(TabPane);
+		SettingIP SettingIp = new SettingIP(Setting, TabPane);
+		SettingMessage SettingMessage = new SettingMessage(Setting, TabPane);
 		SettingInfo SettingInfo = new SettingInfo(TabPane);
 		
 		SettingPanel.add(TabPane, BorderLayout.CENTER);
