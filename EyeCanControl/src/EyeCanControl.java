@@ -35,8 +35,8 @@ public class EyeCanControl
 		Action Action = new Action(Communicator, Devices, Setting);
 		GUI GUI = new GUI(Action, Devices);
 		GUI.createUI();
-		ActionImage ActionImage = new ActionImage(GUI);
-		Action.SetActionImage(ActionImage);
+		ImageController ImageController = new ImageController(GUI);
+		Action.setImageController(ImageController);
 		Thread desktopServerThread = new Thread(new TCPserver(Action, Setting));
 		desktopServerThread.start(); // APP 연동을 위해 Thread 실행
 	}

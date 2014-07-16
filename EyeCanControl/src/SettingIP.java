@@ -18,7 +18,7 @@ public class SettingIP extends Setting implements ActionListener
 	private JTextField txtServerIP;
 	private JTextField txtServerPort;
 	private JButton btnSave;
-	private Font font1 = new Font("µ¸¿ò", Font.PLAIN, 12);
+	private Font font1 = new Font("ë‹ì›€", Font.PLAIN, 12);
 	
 	public SettingIP(JTabbedPane Panel) 
 	{
@@ -62,7 +62,7 @@ public class SettingIP extends Setting implements ActionListener
 		txtServerPort.setText(Integer.toString(ServerPort));
 		SetIpPanel.add(txtServerPort);
 		
-		btnSave = new JButton("ÀúÀå");
+		btnSave = new JButton("ì €ì¥");
 		btnSave.setBounds(80, 150, 70, 20);
 		btnSave.setFont(font1);
 		SetIpPanel.add(btnSave);
@@ -72,7 +72,7 @@ public class SettingIP extends Setting implements ActionListener
 
 	public void actionPerformed(ActionEvent e) 
 	{
-		if(e.getSource().equals(btnSave)) // ÀúÀå ¹öÆ° Å¬¸¯ ½Ã
+		if(e.getSource().equals(btnSave)) // ì €ì¥ ë²„íŠ¼ í´ë¦­ ì‹œ
 		{
 			String ServerIP;
 			int ServerPort;
@@ -89,8 +89,8 @@ public class SettingIP extends Setting implements ActionListener
 					JOptionPane.getRootFrame().dispose();      
 				}   
 			}.start();   
-			JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "ÀúÀåµÇ¾ú½À´Ï´Ù. \n(ÀÌ Ã¢Àº 2ÃÊ ÈÄ¿¡ ÀÚµ¿À¸·Î ´İÈü´Ï´Ù.) ");
-			/** ¼­¹ö ´Ù½Ã ¿¬°á ÄÚµå Ãß°¡ÇØ¾ßÇÔ !! **/
+			JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤. \n(ì´ ì°½ì€ 2ì´ˆ í›„ì— ìë™ìœ¼ë¡œ ë‹«í™ë‹ˆë‹¤.) ");
+			/** ì„œë²„ ë‹¤ì‹œ ì—°ê²° ì½”ë“œ ì¶”ê°€í•´ì•¼í•¨ !! **/
 		}
 		
 		

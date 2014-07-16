@@ -71,8 +71,8 @@ public class Communicator implements SerialPortEventListener
     public void connect()
     {
 //        String selectedPort = (String)window.cboxPorts.getSelectedItem();
-    	/** Setting ¿¡¼­ Comport ºÒ·¯¿À´Â °É·Î ¼öÁ¤ **/
-    	String selectedPort = "COM4";
+    	/** Setting ì—ì„œ Comport ë¶ˆëŸ¬ì˜¤ëŠ” ê±¸ë¡œ ìˆ˜ì • **/
+    	//String selectedPort = "COM4";
         selectedPortIdentifier = (CommPortIdentifier)portMap.get(selectedPort);
 
         CommPort commPort = null;

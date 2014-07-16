@@ -83,7 +83,7 @@ public class TCPserver implements Runnable {
 						Action.SendInitStatus(out);
 					}
 					
-					out.println("Server Received "+ str);
+					//out.println("Server Received "+ str);
 				} catch(Exception e) {
 					System.out.println("S: Error");
 					e.printStackTrace();

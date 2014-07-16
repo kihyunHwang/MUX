@@ -11,7 +11,7 @@ public class Setting
 		this.ServerIP = "192.168.0.13";
 		this.ServerPort = 9000;
 		this.ComPort = "COM4";
-		this.EmergencyMessage = "±ä±Ş »óÈ²!!";
+		this.EmergencyMessage = "ê¸´ê¸‰ ìƒí™©!!";
 	}
 
 	public String getServerIP() 

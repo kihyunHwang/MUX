@@ -7,7 +7,7 @@ public class Action
 	private Communicator Communicator;
 	private Devices Devices;
 	private Setting Setting;
-	private ActionImage ActionImage;
+	private ImageController ImageController;
 	private PrintWriter out;
 	
 	//final static int initStatus[] = {99};
@@ -20,40 +20,36 @@ public class Action
 		this.Setting = Setting;
 	}
 	
-	public void SetActionImage(ActionImage ActionImage)
+	public void setImageController (ImageController ImageController)
 	{
-		this.ActionImage = ActionImage;
+		this.ImageController = ImageController;
 	}
-
-	// ¾ÆµÎÀÌ³ë·Î µ¥ÀÌÅÍ º¸³»°í Device »óÅÂ º¯°æ
+	
+	// ì•„ë‘ì´ë…¸ë¡œ ë°ì´í„° ë³´ë‚´ê³  Device ìƒíƒœ ë³€ê²½
 	public void CallSendData(int code)
 	{
-		Communicator.writeData(code); // ¾ÆµÎÀÌ³ë·Î µ¥ÀÌÅÍ Àü¼Û
+		Communicator.writeData(code); // ì•„ë‘ì´ë…¸ë¡œ ë°ì´í„° ì „ì†¡
+		ImageController.changeImage(code);
 		
 		if(code == 10)
 		{
 			Devices.setLedStatus(false);
-			ActionImage.changeLedImage(code);
 		}
 		else if(code == 11)
 		{
 			Devices.setLedStatus(true);
-			ActionImage.changeLedImage(code);
 		}
 		else if(code == 20)
 		{
 			Devices.setFanStatus(0);
-			ActionImage.changeFanImage(code);
 		}
 		else if(code == 21)
 		{
 			Devices.setFanStatus(1);
-			ActionImage.changeFanImage(code);
 		}
 		else if(code == 22)
 		{
 			Devices.setFanStatus(2);
-			ActionImage.changeFanImage(code);
 		}
 		else if(code == 30)
 		{
@@ -64,7 +60,8 @@ public class Action
 			Devices.setWindowStatus(true);
 		}
 	}
-
+	
+	// Appìœ¼ë¡œ ì´ˆê¸° ìƒíƒœ ì „ì†¡ 
 	public void SendInitStatus(PrintWriter out)
 	{
 		String LedStatus;
@@ -87,7 +84,7 @@ public class Action
 		
 		// CurrentStatus
 		CurrentStatus = LedStatus + FanStatus;
-		out.print(CurrentStatus); 
+		out.println(CurrentStatus); 
 	}
 
 	public void SendEmergencyMessage()
@@ -103,6 +100,6 @@ public class Action
 				JOptionPane.getRootFrame().dispose();      
 			}   
 		}.start();   
-		JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "º¸È£ÀÚ¿¡°Ô ¸Ş½ÃÁö¸¦ Àü¼ÛÇÏ¿´½À´Ï´Ù. \n(ÀÌ Ã¢Àº 2ÃÊ ÈÄ¿¡ ÀÚµ¿À¸·Î ´İÈü´Ï´Ù.) ");
+		JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "ë³´í˜¸ìì—ê²Œ ë©”ì‹œì§€ë¥¼ ì „ì†¡í•˜ì˜€ìŠµë‹ˆë‹¤. \n(ì´ ì°½ì€ 2ì´ˆ í›„ì— ìë™ìœ¼ë¡œ ë‹«í™ë‹ˆë‹¤.) ");
 	}
 }

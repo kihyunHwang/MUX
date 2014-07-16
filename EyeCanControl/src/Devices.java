@@ -2,10 +2,10 @@
 public class Devices 
 {
 
-	 //ledStatus = true ÄÑÁ®ÀÖ´Â »óÅÂ, false ²¨Á® ÀÖ´Â »óÅÂ	
+	// ledStatus = true ì¼œì ¸ìˆëŠ” ìƒíƒœ, false êº¼ì ¸ ìˆëŠ” ìƒíƒœ
 	private boolean ledStatus;
 	private int fanStatus; // 0:off, 1:low, 2:high
-	//windowStatus = true ¿­¸° »óÅÂ, false ´İÈù »óÅÂ.
+	// windowStatus = true ì—´ë¦° ìƒíƒœ, false ë‹«íŒ ìƒíƒœ
 	private boolean windowStatus;
 	
 	public Devices()

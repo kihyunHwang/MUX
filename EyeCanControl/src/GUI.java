@@ -20,20 +20,20 @@ public class GUI extends JFrame implements ActionListener
 	private ImageIcon fan_off_icon;
 	private ImageIcon fan_low_icon;
 	private ImageIcon fan_high_icon;
-	public ImageIcon fan_status_off;
-	public ImageIcon fan_status_low;
-	public ImageIcon fan_status_high;
-	public ImageIcon led_on_icon;
-	public ImageIcon led_off_icon;
+	private ImageIcon fan_status_off;
+	private ImageIcon fan_status_low;
+	private ImageIcon fan_status_high;
+	private ImageIcon led_on_icon;
+	private ImageIcon led_off_icon;
 	private ImageIcon SettingIcon;
 	private ImageIcon window_open_icon;
 	private ImageIcon window_close_icon;
 	private ImageIcon emergency_message_icon;
-	public JButton led_toggle;
+	private JButton led_toggle;
 	private JButton fan_off;
 	private JButton fan_low;
 	private JButton fan_high;
-	public JButton fanStatus;
+	private JButton fanStatus;
 	private JButton window_toggle;
 	private JButton emergency_message;
 	private JButton btnSetting;
@@ -41,7 +41,7 @@ public class GUI extends JFrame implements ActionListener
 	public GUI(Action listener, Devices Devices) 
 	{
 		this.Action = listener;
-		// ÃÊ±â »óÅÂ¸¦ °áÁ¤ÇÏ±â À§ÇØ¼­ ÀĞ¾î¿Â´Ù.
+		// ì´ˆê¸° ìƒíƒœë¥¼ ê²°ì •í•˜ê¸° ìœ„í•´ì„œ ì½ì–´ì˜¨ë‹¤.
 		this.Devices = Devices;
 		SettingWin = new SettingWin();
 		
@@ -56,14 +56,14 @@ public class GUI extends JFrame implements ActionListener
 		setTitle("EyeCanControl");
 		getContentPane().setBackground(Color.white);
 		Border emptyBorder = BorderFactory.createEmptyBorder();
-		UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("µ¸¿ò", Font.PLAIN, 12)));
-		/* ¿Ö ÇÊ¿äÇÑ°ÅÁö??
+		UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("ë‹ì›€", Font.PLAIN, 12)));
+		/* ì™œ í•„ìš”í•œê±°ì§€??
 		Image fan_off_image = fan_off_icon.getImage();
 		BufferedImage fan_off_bi = new BufferedImage(fan_off_image.getWidth(null), fan_off_image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
 		Graphics g = fan_off_bi.createGraphics();
 		g.drawImage(fan_off_image, 0, 0, this);
 		*/
-		// ¼±Ç³±â off ¹öÆ°
+		// ì„ í’ê¸° off ë²„íŠ¼
 		fan_off_icon = new ImageIcon("image/fan_off.png");
 		fan_off = new JButton(fan_off_icon);
 		fan_off.setBorder(emptyBorder);
@@ -72,7 +72,7 @@ public class GUI extends JFrame implements ActionListener
 		fan_off.addActionListener(this);
 		getContentPane().add(fan_off);
 		
-		//¼±Ç³±â ¾à ¹öÆ°
+		//ì„ í’ê¸° ì•½ ë²„íŠ¼
 		fan_low_icon = new ImageIcon("image/fan_low.png");
 		fan_low = new JButton(fan_low_icon);	
 		fan_low.setBorder(emptyBorder);		
@@ -81,7 +81,7 @@ public class GUI extends JFrame implements ActionListener
 		fan_low.addActionListener(this);
 		getContentPane().add(fan_low);
 		
-		//¼±Ç³±â °­ ¹öÆ°
+		//ì„ í’ê¸° ê°• ë²„íŠ¼
 		fan_high_icon = new ImageIcon("image/fan_high.png");
 		fan_high = new JButton(fan_high_icon);
 		fan_high.setBorder(emptyBorder);
@@ -90,7 +90,7 @@ public class GUI extends JFrame implements ActionListener
 		fan_high.addActionListener(this);
 		getContentPane().add(fan_high);
 		
-		// ¼±Ç³±â ÇöÀç »óÅÂ ÀÌ¹ÌÁö
+		// ì„ í’ê¸° í˜„ì¬ ìƒíƒœ ì´ë¯¸ì§€
 		this.fanStatus = new JButton();
 		fan_status_off = new ImageIcon("image/fan_status_off.png");
 		fan_status_low = new ImageIcon("image/fan_status_low.png");
@@ -118,7 +118,7 @@ public class GUI extends JFrame implements ActionListener
 		led_off_icon = new ImageIcon("image/led_off.png");
 		this.led_toggle = new JButton(led_off_icon);
 		
-		// LED ÃÊ±â »óÅÂ ÀÌ¹ÌÁö ¼ÂÆÃ 
+		// LED ì´ˆê¸° ìƒíƒœ ì´ë¯¸ì§€ ì…‹íŒ…
 		if(Devices.getLedStatus())
 		{
 			led_toggle.setIcon(led_on_icon);
@@ -133,9 +133,7 @@ public class GUI extends JFrame implements ActionListener
 		led_toggle.setBorder(emptyBorder);
 		getContentPane().add(led_toggle);
 		
-		
-		
-		//Ã¢¹® ÃÊ±â »óÅÂ ÀÌ¹ÌÁö ¼ÂÆÃ
+		// ì°½ë¬¸ ì´ˆê¸° ìƒíƒœ ì´ë¯¸ì§€ ì…‹íŒ…
 		window_open_icon = new ImageIcon("image/window_open.png");
 		window_close_icon = new ImageIcon("image/window_close.png");
 		
@@ -156,7 +154,7 @@ public class GUI extends JFrame implements ActionListener
 		window_toggle.setBorder(emptyBorder);
 		getContentPane().add(window_toggle);
 		
-		// ÀÀ±Ş ¸Ş½ÃÁö
+		// ì‘ê¸‰ ë©”ì‹œì§€
 		emergency_message_icon = new ImageIcon("image/emergency_message.png");
 		
 		emergency_message = new JButton(emergency_message_icon);
@@ -165,8 +163,7 @@ public class GUI extends JFrame implements ActionListener
 		emergency_message.addActionListener(this);
 		getContentPane().add(emergency_message);
 		
-		
-		// È¯°æ¼³Á¤
+		// í™˜ê²½ì„¤ì •
 		SettingIcon = new ImageIcon("image/setting.png");
 		btnSetting = new JButton(SettingIcon);	
 		btnSetting.setBorder(emptyBorder);		
@@ -178,6 +175,41 @@ public class GUI extends JFrame implements ActionListener
 	
 	}
 
+	// code = 10 : LEDOff, 11 : LEDOn 
+	// 20 : FanOff, 21 : FanLow, 22 : FanHigh, 
+	// 30 : WindowClose, 31 : WindowOpen
+	public void setButtonImage(int code)
+	{
+		if(code == 10)
+		{
+			this.led_toggle.setIcon(led_off_icon);
+		}
+		else if(code == 11)
+		{
+			this.led_toggle.setIcon(led_on_icon);
+		}
+		else if(code == 20)
+		{
+			this.fanStatus.setIcon(fan_status_off);
+		}
+		else if(code == 21)
+		{
+			this.fanStatus.setIcon(fan_status_low);
+		}
+		else if(code == 22)
+		{
+			this.fanStatus.setIcon(fan_status_high);
+		}
+		else if(code == 30)
+		{
+			this.window_toggle.setIcon(window_close_icon);
+		}
+		else if(code == 31)
+		{
+			this.window_toggle.setIcon(window_open_icon);
+		}
+	}
+	
 	public void actionPerformed(ActionEvent e) 
 	{
 		final int LedOff = 10;
@@ -188,7 +220,7 @@ public class GUI extends JFrame implements ActionListener
 		final int WindowClose = 30;
 		final int WindowOpen = 31;
 		
-		if(e.getSource().equals(led_toggle)) // Àüµî On or Off
+		if(e.getSource().equals(led_toggle)) // ì „ë“± On or Off
 		{
 			if(Devices.getLedStatus())
 	        {
@@ -201,7 +233,7 @@ public class GUI extends JFrame implements ActionListener
 	        	System.out.println("LED ON");
 	        }	
 		}
-		else if(e.getSource().equals(fan_off)) // ¼±Ç³±â Off
+		else if(e.getSource().equals(fan_off)) // ì„ í’ê¸° Off
 		{
 			if(Devices.getFanStatus() == 0)
 			{
@@ -213,7 +245,7 @@ public class GUI extends JFrame implements ActionListener
 						JOptionPane.getRootFrame().dispose();      
 					}   
 				}.start();   
-				JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "ÀÌ¹Ì ¼±Ç³±â°¡ ²¨Á®ÀÖ½À´Ï´Ù. \n(ÀÌ Ã¢Àº 2ÃÊ ÈÄ¿¡ ÀÚµ¿À¸·Î ´İÈü´Ï´Ù.) ");   
+				JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "ì´ë¯¸ ì„ í’ê¸°ê°€ êº¼ì ¸ìˆìŠµë‹ˆë‹¤. \n(ì´ ì°½ì€ 2ì´ˆ í›„ì— ìë™ìœ¼ë¡œ ë‹«í™ë‹ˆë‹¤.) ");   
 			}
 			else
 			{
@@ -221,7 +253,7 @@ public class GUI extends JFrame implements ActionListener
 				System.out.println("fan is now off");
 			}
 		}
-		else if(e.getSource().equals(fan_low)) // ¼±Ç³±â ¾à 
+		else if(e.getSource().equals(fan_low)) // ì„ í’ê¸° ì•½
 		{
 			if(Devices.getFanStatus() == 1)
 			{
@@ -233,7 +265,7 @@ public class GUI extends JFrame implements ActionListener
 						JOptionPane.getRootFrame().dispose();      
 					}   
 				}.start();   
-				JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "ÀÌ¹Ì ¼±Ç³±â°¡ ¾àÇ³À¸·Î ¼³Á¤µÇ¾î ÀÖ½À´Ï´Ù. \n(ÀÌ Ã¢Àº 2ÃÊ ÈÄ¿¡ ÀÚµ¿À¸·Î ´İÈü´Ï´Ù.) ");
+				JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "ì´ë¯¸ ì„ í’ê¸°ê°€ ì•½í’ìœ¼ë¡œ ì„¤ì •ë˜ì–´ ìˆìŠµë‹ˆë‹¤. \n(ì´ ì°½ì€ 2ì´ˆ í›„ì— ìë™ìœ¼ë¡œ ë‹«í™ë‹ˆë‹¤.) ");
 			}
 			else
 			{
@@ -241,7 +273,7 @@ public class GUI extends JFrame implements ActionListener
 				System.out.println("fan is low");
 			}
 		}
-		else if(e.getSource().equals(fan_high)) // ¼±Ç³±â °­
+		else if(e.getSource().equals(fan_high)) // ì„ í’ê¸° ê°•
 		{
 			if(Devices.getFanStatus() == 2)
 			{
@@ -253,7 +285,7 @@ public class GUI extends JFrame implements ActionListener
 						JOptionPane.getRootFrame().dispose();      
 					}   
 				}.start();   
-				JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "ÀÌ¹Ì ¼±Ç³±â°¡ °­Ç³À¸·Î ¼³Á¤µÇ¾î ÀÖ½À´Ï´Ù. \n(ÀÌ Ã¢Àº 2ÃÊ ÈÄ¿¡ ÀÚµ¿À¸·Î ´İÈü´Ï´Ù.) ");
+				JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "ì´ë¯¸ ì„ í’ê¸°ê°€ ê°•í’ìœ¼ë¡œ ì„¤ì •ë˜ì–´ ìˆìŠµë‹ˆë‹¤. \n(ì´ ì°½ì€ 2ì´ˆ í›„ì— ìë™ìœ¼ë¡œ ë‹«í™ë‹ˆë‹¤.) ");
 			}
 			else
 			{
@@ -265,24 +297,22 @@ public class GUI extends JFrame implements ActionListener
 		{
 			Action.SendEmergencyMessage();
 		}
-		else if(e.getSource().equals(window_toggle)) // Ã¢¹® open or close 
+		else if(e.getSource().equals(window_toggle)) // ì°½ë¬¸ open or close
 		{
 			if(Devices.getWindowStatus())
 	        {
 	        	Action.CallSendData(WindowClose);
-	        	window_toggle.setIcon(window_close_icon);
 	        	System.out.println("WINDOW CLOSE");
 	        }
 	        else 
 	        { 
 	        	Action.CallSendData(WindowOpen);
-	        	window_toggle.setIcon(window_open_icon);
 	        	System.out.println("WINDOW OPEN");
 	        }	
 		}
 		else if(e.getSource().equals(btnSetting)) // Setting
 		{
-			SettingWin.setTitle("EyeCanControl-È¯°æ¼³Á¤");
+			SettingWin.setTitle("EyeCanControl-í™˜ê²½ì„¤ì •");
 			SettingWin.setBounds(300, 100, 300, 300);
 			SettingWin.setVisible(true);
 		}
