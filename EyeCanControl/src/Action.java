@@ -1,5 +1,11 @@
 import java.io.PrintWriter;
-
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import com.google.android.gcm.server.Message;
+import com.google.android.gcm.server.MulticastResult;
+import com.google.android.gcm.server.Result;
+import com.google.android.gcm.server.Sender;
 import javax.swing.JOptionPane;
 
 public class Action
@@ -87,11 +93,36 @@ public class Action
 		out.println(CurrentStatus); 
 	}
 
-	public void SendEmergencyMessage()
+	// 응급 메시지 전송
+	public void SendEmergencyMessage() throws IOException
 	{
+		Sender sender = new Sender("AIzaSyBPaueJFJJ1o_4lg5IMUKp6Vkkf-swn9gM");
+		// Test Device
+		String regId = "APA91bHoSrHz1oD768bxCXiusFAnZ16niUIR8yb2qTh7pIpWqhfTTa1-kTrT4A_P9lfECa3pIu_gGjX8J67nl-UzmyO7f2QsfDCCRX37fj0ElbVmzhPHHmoq7nDKtBGE3wDfzbInMCGYHR7ergI0zWAUU6msM2FMqJ9sTsFXE9efFZhSgh9vGYw";
+		
+		// 응급 메시지 셋팅
 		String EmergencyMessage;
 		EmergencyMessage = Setting.getEmergencyMessage();
-		out.println(EmergencyMessage);
+		
+		//msg에 응급메시지를 넣어서 보낸다
+		Message message = new Message.Builder().addData("msg", EmergencyMessage).build();   
+		
+		List<String> list = new ArrayList<String>();
+		list.add(regId);
+		
+		// 메시지 전송
+		MulticastResult multiResult = sender.send(message, list, 5);
+
+		if (multiResult != null) 
+		{
+			List<Result> resultList = multiResult.getResults();
+			for (Result result : resultList) 
+			{
+				System.out.println("응급 메시지 전송 완료 : " + result.getMessageId());
+			}
+		}
+		
+		// 전송 완료 메시지 창 띄우기
 		new Thread() {   
 			public void run() {   
 				try {   

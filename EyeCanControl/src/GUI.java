@@ -7,6 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import java.awt.Font;
+import java.io.IOException;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.plaf.FontUIResource;
@@ -295,7 +297,11 @@ public class GUI extends JFrame implements ActionListener
 		}
 		else if(e.getSource().equals(emergency_message)) // Emergency Message
 		{
-			Action.SendEmergencyMessage();
+			try {
+				Action.SendEmergencyMessage();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 		}
 		else if(e.getSource().equals(window_toggle)) // 창문 open or close
 		{
