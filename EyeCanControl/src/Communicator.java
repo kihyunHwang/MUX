@@ -39,6 +39,7 @@ public class Communicator implements SerialPortEventListener
     String logText = "";
     
     private String selectedPort;
+    private Action Action;
 
     public Communicator(String ComPort)
     {
@@ -190,6 +191,10 @@ public class Communicator implements SerialPortEventListener
             {
             	int readData = input.read();
             	System.out.println(readData + "@@@\n");
+            	if(readData == 51) // 소변통 (Water Sensor)
+            	{
+            		Action.SendUrineMessage();
+            	}
             }
             catch (Exception e)
             {
@@ -217,4 +222,8 @@ public class Communicator implements SerialPortEventListener
         }
     }
 
+	public void SetAction(Action Action)
+	{
+		this.Action = Action;
+	}
 }

@@ -33,6 +33,7 @@ public class EyeCanControl
 		Devices Devices = new Devices();
 		EyeCanControl ECC = new EyeCanControl(Setting);
 		Action Action = new Action(Communicator, Devices, Setting);
+		Communicator.SetAction(Action);
 		GUI GUI = new GUI(Action, Devices, Setting);
 		GUI.createUI();
 		ImageController ImageController = new ImageController(GUI);

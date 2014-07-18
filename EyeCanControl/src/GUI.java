@@ -54,7 +54,7 @@ public class GUI extends JFrame implements ActionListener
 	{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0,0, 800, 600);
-		setResizable(false);
+		setResizable(true);
 		getContentPane().setLayout(null);
 		setTitle("EyeCanControl");
 		getContentPane().setBackground(Color.white);
@@ -131,7 +131,7 @@ public class GUI extends JFrame implements ActionListener
 			led_toggle.setIcon(led_off_icon);
 		}
 		led_toggle.setName("led_toggle");
-		led_toggle.setBounds(50, 300, 110, 150);
+		led_toggle.setBounds(50, 300, 100, 100);
 		led_toggle.addActionListener(this);
 		led_toggle.setBorder(emptyBorder);
 		getContentPane().add(led_toggle);
@@ -227,12 +227,12 @@ public class GUI extends JFrame implements ActionListener
 		{
 			if(Devices.getLedStatus())
 	        {
-	        	Action.CallSendData(LedOff);
+	        	Action.CallSendData(LedOff, 0);
 	        	System.out.println("LED OFF");
 	        }
 	        else 
 	        { 
-	        	Action.CallSendData(LedOn);
+	        	Action.CallSendData(LedOn, 0);
 	        	System.out.println("LED ON");
 	        }	
 		}
@@ -252,7 +252,7 @@ public class GUI extends JFrame implements ActionListener
 			}
 			else
 			{
-				Action.CallSendData(FanOff); 
+				Action.CallSendData(FanOff, 0); 
 				System.out.println("fan is now off");
 			}
 		}
@@ -272,7 +272,7 @@ public class GUI extends JFrame implements ActionListener
 			}
 			else
 			{
-				Action.CallSendData(FanLow);
+				Action.CallSendData(FanLow, 0);
 				System.out.println("fan is low");
 			}
 		}
@@ -292,7 +292,7 @@ public class GUI extends JFrame implements ActionListener
 			}
 			else
 			{
-				Action.CallSendData(FanHigh);
+				Action.CallSendData(FanHigh, 0);
 				System.out.println("fan is high");
 			}
 		}
@@ -308,12 +308,12 @@ public class GUI extends JFrame implements ActionListener
 		{
 			if(Devices.getWindowStatus())
 	        {
-	        	Action.CallSendData(WindowClose);
+	        	Action.CallSendData(WindowClose, 0);
 	        	System.out.println("WINDOW CLOSE");
 	        }
 	        else 
 	        { 
-	        	Action.CallSendData(WindowOpen);
+	        	Action.CallSendData(WindowOpen, 0);
 	        	System.out.println("WINDOW OPEN");
 	        }	
 		}

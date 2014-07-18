@@ -27,7 +27,7 @@ public class SettingWin extends JFrame
 		
 		TabPane = new JTabbedPane();
 		
-		SettingIP SettingIp = new SettingIP(Setting, TabPane);
+		//SettingIP SettingIp = new SettingIP(Setting, TabPane);
 		SettingMessage SettingMessage = new SettingMessage(Setting, TabPane);
 		SettingInfo SettingInfo = new SettingInfo(TabPane);
 		
